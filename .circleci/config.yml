@@ -108,7 +108,7 @@ jobs:
             export PATH="~/.local/bin:$PATH"
             git clone https://github.com/GivaDogaBone/learn-terraform-circleci/ .
             pwd
-            aws s3 sync --acl public-read "/home/circleci/project/assets" s3://${APP_BUCKET}
+            aws s3 sync --acl public-read "/home/circleci/project" s3://${APP_BUCKET}
 
 
   destroy:
