@@ -95,20 +95,18 @@ jobs:
     <<: *apply_job
 
   deployment:
-    # docker: [{ image: "circleci/python:latest" }]
-    docker: [{ image: "circleci/node:latest" }]
+    docker: [{ image: "circleci/python:latest" }]
     working_directory: "~/project"
 
     steps:
       - run:
           name: "Push to S3"
           command: |
-            # pip install --user awscli
-            npm install --user awscli
+            pip install --user awscli
             export PATH="~/.local/bin:$PATH"
             git clone https://github.com/GivaDogaBone/learn-terraform-circleci/ .
             pwd
-            aws s3 sync --acl public-read "/home/circleci/project" s3://${APP_BUCKET}
+            aws s3 sync --acl public-read "/home/circleci/project/assets" s3://${APP_BUCKET}
 
 
   destroy:
