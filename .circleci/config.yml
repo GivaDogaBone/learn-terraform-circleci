@@ -103,7 +103,8 @@ jobs:
       - run:
           name: "Push to S3"
           command: |
-            pip install --user awscli
+            # pip install --user awscli
+            npm install --user awscli
             export PATH="~/.local/bin:$PATH"
             git clone https://github.com/hashicorp/learn-terraform-circleci/ .
             pwd
