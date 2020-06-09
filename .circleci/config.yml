@@ -95,7 +95,8 @@ jobs:
     <<: *apply_job
 
   deployment:
-    docker: [{ image: "circleci/python:latest" }]
+    # docker: [{ image: "circleci/python:latest" }]
+    docker: [{ image: "circleci/node:latest" }]
     working_directory: "~/project"
 
     steps:
