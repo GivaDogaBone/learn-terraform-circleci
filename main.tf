@@ -21,6 +21,11 @@ resource "aws_iam_user" "circleci" {
   path = "/system/"
 }
 
+resource "aws_instance" "example" {
+  ami           = "ami-2757f631"
+  instance_type = "t2.micro"
+}
+
 resource "aws_iam_access_key" "circleci" {
   user = aws_iam_user.circleci.name
 }
